@@ -3,7 +3,6 @@ export interface PressMention {
   label: string;
 }
 
-/** Placeholder press badges — replace with real logos/press credits once available. */
 export const PRESS_MENTIONS: PressMention[] = [
   { id: 1, label: 'STYLE JOURNAL' },
   { id: 2, label: 'BRIDAL TODAY' },

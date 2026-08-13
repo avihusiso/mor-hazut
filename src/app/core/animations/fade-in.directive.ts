@@ -9,11 +9,6 @@ import {
   Renderer2,
 } from '@angular/core';
 
-/**
- * Adds the `fade-section` / `is-visible` classes and reveals the host element
- * with a fade-up animation the first time it scrolls into the viewport.
- * Honours prefers-reduced-motion via CSS (see styles.css).
- */
 @Directive({
   selector: '[appFadeIn]',
   host: {

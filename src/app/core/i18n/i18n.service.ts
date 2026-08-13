@@ -21,9 +21,7 @@ export class I18nService {
       this.document.documentElement.dir = this.dir();
       try {
         localStorage.setItem(STORAGE_KEY, lang);
-      } catch {
-        /* private browsing / storage disabled */
-      }
+      } catch {}
     });
   }
 
@@ -35,7 +33,6 @@ export class I18nService {
     this.lang.set(this.lang() === 'he' ? 'en' : 'he');
   }
 
-  /** Look up a dot-path translation key, e.g. t('nav.home') */
   t(path: string): string {
     const dict = TRANSLATIONS[this.lang()];
     const value = path.split('.').reduce<unknown>((acc, key) => {
@@ -47,7 +44,6 @@ export class I18nService {
     return typeof value === 'string' ? value : path;
   }
 
-  /** Pick the field matching the current language from a { he, en } pair. */
   pick(pair: { he: string; en: string }): string {
     return pair[this.lang()];
   }
@@ -58,9 +54,7 @@ export class I18nService {
       if (stored === 'he' || stored === 'en') {
         return stored;
       }
-    } catch {
-      /* private browsing / storage disabled */
-    }
+    } catch {}
     return 'he';
   }
 }

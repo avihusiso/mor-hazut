@@ -1,4 +1,3 @@
-<!-- Hero -->
 <section class="relative flex h-[88vh] min-h-[560px] w-full items-center justify-center overflow-hidden">
   <img
     src="assets/photos/gallery/Hero.jpg"
@@ -19,6 +18,7 @@
     <a
       routerLink="/"
       fragment="contact"
+      appScrollToFragment="contact"
       class="mt-6 inline-flex items-center justify-center border border-charcoal px-10 py-4 text-xs font-semibold tracking-[0.15em] text-charcoal uppercase transition-colors duration-300 hover:bg-charcoal hover:text-ivory"
     >
       {{ i18n.t('hero.cta') }}
@@ -26,7 +26,6 @@
   </div>
 </section>
 
-<!-- Featured Gowns -->
 <section appFadeIn class="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28 lg:px-20">
   <app-section-heading [eyebrow]="i18n.t('home.featured.eyebrow')" [title]="i18n.t('home.featured.title')" />
 
@@ -61,7 +60,6 @@
   </div>
 </section>
 
-<!-- Villa Juliet teaser -->
 <section appFadeIn class="bg-ivory-deep px-6 py-20 text-center md:px-10 md:py-24">
   <p class="eyebrow mb-2">{{ i18n.t('home.villaTeaser.eyebrow') }}</p>
   <p dir="ltr" class="font-script text-4xl text-gold-deep md:text-5xl">Juliet</p>
@@ -76,7 +74,6 @@
   </a>
 </section>
 
-<!-- Process -->
 <section appFadeIn class="bg-surface px-6 py-20 md:px-10 md:py-28 lg:px-20">
   <div class="mx-auto max-w-[1440px]">
     <app-section-heading [eyebrow]="i18n.t('home.process.eyebrow')" [title]="i18n.t('home.process.title')" />
@@ -95,7 +92,6 @@
   </div>
 </section>
 
-<!-- About -->
 <section appFadeIn class="bg-charcoal px-6 py-20 text-ivory md:px-10 md:py-28 lg:px-20">
   <div class="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
     <div class="aspect-4/5 overflow-hidden rounded-lg border border-ivory/15">
@@ -120,6 +116,7 @@
         <a
           routerLink="/"
           fragment="contact"
+          appScrollToFragment="contact"
           class="btn-outline w-full border-ivory/60 !py-3 text-xs text-ivory hover:bg-ivory hover:text-charcoal"
         >
           {{ i18n.t('home.about.ctaButton') }}
@@ -129,7 +126,6 @@
   </div>
 </section>
 
-<!-- Contact -->
 <section id="contact" appFadeIn class="bg-ivory-deep px-6 py-20 md:px-10 md:py-28 lg:px-20">
   <div class="mx-auto max-w-3xl">
     <app-section-heading

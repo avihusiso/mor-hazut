@@ -11,6 +11,7 @@ export type IconName =
   | 'menu'
   | 'close'
   | 'chevron-down'
+  | 'chevron-up-double'
   | 'arrow'
   | 'star'
   | 'quote'
@@ -88,6 +89,10 @@ export type IconName =
         }
         @case ('chevron-down') {
           <path d="m6 9 6 6 6-6" />
+        }
+        @case ('chevron-up-double') {
+          <path d="m6 17 6-6 6 6" />
+          <path d="m6 11 6-6 6 6" />
         }
         @case ('arrow') {
           <path d="M5 12h14M13 6l6 6-6 6" />

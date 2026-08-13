@@ -15,7 +15,6 @@ import { I18nService } from '../../core/i18n/i18n.service';
 import { IconComponent } from '../../shared/icon/icon';
 import { SectionHeadingComponent } from '../../shared/section-heading/section-heading';
 
-/** Repeating pattern that gives the desktop gallery an editorial, masonry-style rhythm. */
 const GRID_SPAN_PATTERN = ['lg:row-span-2', '', '', 'lg:row-span-2'];
 
 @Component({

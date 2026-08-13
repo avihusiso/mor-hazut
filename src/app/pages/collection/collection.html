@@ -1,11 +1,12 @@
 <section class="mx-auto max-w-[1440px] px-6 pt-32 pb-20 md:px-10 md:pt-40 md:pb-28 lg:px-20">
   <app-section-heading
+    [level]="1"
     [eyebrow]="i18n.t('collection.eyebrow')"
     [title]="i18n.t('collection.title')"
     [subtitle]="i18n.t('collection.subtitle')"
   />
 
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-4 lg:auto-rows-[14rem] lg:gap-5">
+  <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-flow-dense lg:grid-cols-4 lg:auto-rows-[14rem] lg:gap-5">
     @for (gown of gowns; track gown.id; let i = $index) {
       <button
         type="button"

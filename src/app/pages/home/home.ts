@@ -5,6 +5,7 @@ import { FadeInDirective } from '../../core/animations/fade-in.directive';
 import { FEATURED_GOWNS } from '../../core/data/gallery.data';
 import { PROCESS_STEPS } from '../../core/data/process.data';
 import { I18nService } from '../../core/i18n/i18n.service';
+import { ScrollToFragmentDirective } from '../../core/navigation/scroll-to-fragment.directive';
 import { IconComponent } from '../../shared/icon/icon';
 import { SectionHeadingComponent } from '../../shared/section-heading/section-heading';
 import { WHATSAPP_NUMBER } from '../../shared/whatsapp-button/whatsapp-button';
@@ -28,7 +29,14 @@ interface ContactForm {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, FadeInDirective, IconComponent, SectionHeadingComponent],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    FadeInDirective,
+    IconComponent,
+    SectionHeadingComponent,
+    ScrollToFragmentDirective,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.html',
 })

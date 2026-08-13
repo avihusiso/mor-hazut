@@ -8,13 +8,14 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ScrollToFragmentDirective } from '../../core/navigation/scroll-to-fragment.directive';
 import { I18nService } from '../../core/i18n/i18n.service';
 import { IconComponent } from '../icon/icon';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, IconComponent],
+  imports: [RouterLink, RouterLinkActive, IconComponent, ScrollToFragmentDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './navbar.html',
 })

@@ -28,8 +28,8 @@ export const PRIVACY_POLICY: LegalPage = {
       heading: { he: 'איסוף מידע ומסירתו:', en: 'Collecting and Sharing Information:' },
       body: [
         {
-          he: 'האתר אינו אוסף מידע או נתונים אישיים על המשתמשים בו. פרטים אישיים (כגון שם, מספר טלפון ותאריך חתונה) הנמסרים מרצון דרך טופס יצירת הקשר או קביעת הפגישה באתר, אינם נשמרים במאגר מידע כלשהו, אלא מועברים ישירות למייל או לווטסאפ של הסטודיו לצורך מענה לפנייתך בלבד.',
-          en: "This site does not collect information or personal data about its users. Personal details (such as name, phone number, and wedding date) voluntarily submitted through the contact or appointment-booking form are not stored in any database — they are sent directly to the studio's email or WhatsApp solely for the purpose of responding to your inquiry.",
+          he: 'האתר אינו אוסף מידע או נתונים אישיים על המשתמשים בו. פרטים אישיים (כגון שם, מספר טלפון וכתובת אימייל) הנמסרים מרצון דרך טופס יצירת הקשר, אינם נשמרים במאגר מידע כלשהו ואינם עוברים דרך שרת כלשהו — הטופס פותח עבורך הודעת וואטסאפ מוכנה עם הפרטים שמילאת, ואת/ה זו/ה שמחליט/ה לשלוח אותה לסטודיו.',
+          en: "This site does not collect information or personal data about its users. Personal details (such as name, phone number, and email address) voluntarily submitted through the contact form are not stored in any database and never pass through any server — the form opens a ready-made WhatsApp message with the details you entered, and you decide whether to send it to the studio.",
         },
       ],
     },
@@ -39,6 +39,10 @@ export const PRIVACY_POLICY: LegalPage = {
         {
           he: 'האתר אינו עושה שימוש בקבצי עוגיות (Cookies) או בכלי מעקב חיצוניים לצורך איסוף מידע על גולשים.',
           en: 'This site does not use cookies or external tracking tools to collect information about visitors.',
+        },
+        {
+          he: 'האתר משתמש באחסון מקומי בדפדפן (Local Storage) לצורך שמירת שפת התצוגה שבחרת (עברית/אנגלית) בלבד. מידע זה נשמר על גבי המכשיר שלך בלבד, אינו מועבר לשרת כלשהו ואינו משמש לאיסוף מידע או מעקב.',
+          en: 'This site uses browser local storage solely to remember your chosen display language (Hebrew/English). This information stays on your own device, is never transmitted to any server, and is not used to collect information or track you.',
         },
       ],
     },

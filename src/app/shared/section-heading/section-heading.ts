@@ -7,7 +7,11 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   template: `
     <div class="mx-auto mb-12 max-w-2xl text-center md:mb-16">
       <p class="eyebrow mb-3">{{ eyebrow() }}</p>
-      <h2 class="text-3xl font-semibold text-charcoal md:text-4xl">{{ title() }}</h2>
+      @if (level() === 1) {
+        <h1 class="text-3xl font-semibold text-charcoal md:text-4xl">{{ title() }}</h1>
+      } @else {
+        <h2 class="text-3xl font-semibold text-charcoal md:text-4xl">{{ title() }}</h2>
+      }
       <div class="mx-auto my-5 h-px w-12 bg-gold-deep/60"></div>
       @if (subtitle()) {
         <p class="text-base leading-relaxed text-charcoal-soft">{{ subtitle() }}</p>
@@ -19,4 +23,5 @@ export class SectionHeadingComponent {
   readonly eyebrow = input.required<string>();
   readonly title = input.required<string>();
   readonly subtitle = input<string>('');
+  readonly level = input<1 | 2>(2);
 }

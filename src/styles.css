@@ -30,6 +30,7 @@
 
   --animate-fade-up: fade-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in: lightbox-fade-in 0.35s ease forwards;
+  --animate-fade-section: fade-up 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fade-up {
@@ -116,7 +117,7 @@
   }
 
   .fade-section.is-visible {
-    animation: var(--animate-fade-up);
+    animation: var(--animate-fade-section);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -40,7 +40,12 @@
       >
         {{ i18n.t('nav.langToggle') }}
       </button>
-      <a routerLink="/" fragment="contact" class="btn-outline !px-6 !py-3 text-xs">
+      <a
+        routerLink="/"
+        fragment="contact"
+        appScrollToFragment="contact"
+        class="btn-outline !px-6 !py-3 text-xs"
+      >
         {{ i18n.t('nav.bookFitting') }}
       </a>
     </div>
@@ -88,6 +93,7 @@
       <a
         routerLink="/"
         fragment="contact"
+        appScrollToFragment="contact"
         (click)="closeMobile()"
         class="btn-solid mt-4 w-full text-xs"
       >

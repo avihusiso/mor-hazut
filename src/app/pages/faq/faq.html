@@ -1,5 +1,6 @@
 <section class="mx-auto max-w-3xl px-6 pt-32 pb-20 md:px-10 md:pt-40 md:pb-28">
   <app-section-heading
+    [level]="1"
     [eyebrow]="i18n.t('faq.eyebrow')"
     [title]="i18n.t('faq.title')"
     [subtitle]="i18n.t('faq.subtitle')"
@@ -8,14 +9,14 @@
   <div class="flex flex-col">
     @for (item of items; track item.id; let i = $index) {
       <div appFadeIn [appFadeInDelay]="(i % 4) * 60" class="border-b border-beige-dark/50">
-        <h3>
+        <h2>
           <button
             type="button"
             [id]="'faq-btn-' + item.id"
             [attr.aria-expanded]="isOpen(item.id)"
             [attr.aria-controls]="'faq-panel-' + item.id"
             (click)="toggle(item.id)"
-            class="flex w-full  cursor-pointer items-center justify-between gap-4 py-5 text-start"
+            class="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-start"
           >
             <span class="text-base font-medium text-charcoal md:text-lg">{{ i18n.pick(item.question) }}</span>
             <app-icon
@@ -24,7 +25,7 @@
               [class.rotate-180]="isOpen(item.id)"
             />
           </button>
-        </h3>
+        </h2>
         <div
           [id]="'faq-panel-' + item.id"
           role="region"
@@ -42,7 +43,7 @@
 
   <div appFadeIn class="mt-16 flex flex-col items-center gap-4 bg-surface px-8 py-12 text-center">
     <p class="text-lg font-medium text-charcoal">{{ i18n.t('faq.stillHaveQuestions') }}</p>
-    <a routerLink="/" fragment="contact" class="btn-outline !px-6 !py-3 text-xs">
+    <a routerLink="/" fragment="contact" appScrollToFragment="contact" class="btn-outline !px-6 !py-3 text-xs">
       {{ i18n.t('faq.contactCta') }}
     </a>
   </div>

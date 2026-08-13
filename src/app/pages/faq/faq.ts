@@ -3,13 +3,14 @@ import { RouterLink } from '@angular/router';
 import { FadeInDirective } from '../../core/animations/fade-in.directive';
 import { FAQ_ITEMS } from '../../core/data/faq.data';
 import { I18nService } from '../../core/i18n/i18n.service';
+import { ScrollToFragmentDirective } from '../../core/navigation/scroll-to-fragment.directive';
 import { IconComponent } from '../../shared/icon/icon';
 import { SectionHeadingComponent } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [FadeInDirective, IconComponent, SectionHeadingComponent, RouterLink],
+  imports: [FadeInDirective, IconComponent, SectionHeadingComponent, RouterLink, ScrollToFragmentDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './faq.html',
 })

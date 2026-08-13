@@ -13,12 +13,13 @@ import { RouterLink } from '@angular/router';
 import { FadeInDirective } from '../../core/animations/fade-in.directive';
 import { VILLA_AMENITIES, VILLA_GALLERY } from '../../core/data/villa.data';
 import { I18nService } from '../../core/i18n/i18n.service';
+import { ScrollToFragmentDirective } from '../../core/navigation/scroll-to-fragment.directive';
 import { IconComponent } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-villa',
   standalone: true,
-  imports: [RouterLink, FadeInDirective, IconComponent],
+  imports: [RouterLink, FadeInDirective, IconComponent, ScrollToFragmentDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './villa.html',
 })
