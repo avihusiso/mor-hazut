@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home').then((m) => m.HomeComponent),
-    title: 'מור חזות | סוטידו שמלות כלה',
+    title: 'מור חזות | שמלות כלה צנועות',
   },
   {
     path: 'collection',

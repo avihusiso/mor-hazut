@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { FadeInDirective } from '../../core/animations/fade-in.directive';
 import { FEATURED_GOWNS } from '../../core/data/gallery.data';
 import { PROCESS_STEPS } from '../../core/data/process.data';
+import { STUDIO_PHOTOS } from '../../core/data/studio.data';
 import { I18nService } from '../../core/i18n/i18n.service';
 import { ScrollToFragmentDirective } from '../../core/navigation/scroll-to-fragment.directive';
 import { IconComponent } from '../../shared/icon/icon';
@@ -44,8 +45,10 @@ export class HomeComponent {
   protected readonly i18n = inject(I18nService);
   protected readonly featuredGowns = FEATURED_GOWNS;
   protected readonly processSteps = PROCESS_STEPS;
+  protected readonly studioPhotos = STUDIO_PHOTOS;
 
   protected readonly submitted = signal(false);
+  protected readonly studioIndex = signal(0);
 
   protected readonly form = new FormGroup<ContactForm>({
     fullName: new FormControl('', {
@@ -61,6 +64,22 @@ export class HomeComponent {
       validators: [Validators.required, Validators.email],
     }),
   });
+
+  constructor() {
+    const destroyRef = inject(DestroyRef);
+    const intervalId = setInterval(() => {
+      this.studioIndex.update((i) => (i + 1) % this.studioPhotos.length);
+    }, 150_000);
+    destroyRef.onDestroy(() => clearInterval(intervalId));
+  }
+
+  nextStudioPhoto(): void {
+    this.studioIndex.update((i) => (i + 1) % this.studioPhotos.length);
+  }
+
+  prevStudioPhoto(): void {
+    this.studioIndex.update((i) => (i - 1 + this.studioPhotos.length) % this.studioPhotos.length);
+  }
 
   get fullName() {
     return this.form.controls.fullName;

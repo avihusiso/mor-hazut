@@ -10,7 +10,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 1,
     name: 'Elara',
-    featured: true,
+    featured: false,
     src: 'assets/photos/gallery/model-1.png',
     alt: {
       he: 'כלה בשמלת תחרה קלאסית עם שרוולים ארוכים וחצאית רקומה בפרחי תחרה',
@@ -20,7 +20,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 2,
     name: 'Celine',
-    featured: false,
+    featured: true,
     src: 'assets/photos/gallery/model-2.png',
     alt: {
       he: 'כלה בשמלת בוהו שיק עם תחרה עדינה ומחשוף עדין',
@@ -30,7 +30,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 3,
     name: 'Maeve',
-    featured: false,
+    featured: true,
     src: 'assets/photos/gallery/model-3.png',
     alt: {
       he: 'כלה בשמלת נסיכה מלאה עם חצאית נפוחה ופרטי תחרה עדינים',
@@ -40,7 +40,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 4,
     name: 'Willow',
-    featured: true,
+    featured: false,
     src: 'assets/photos/gallery/gown-01.png',
     alt: {
       he: 'תקריב על גזרת שמלת ערב עם תחרה רקומה ושרוולים שקופים',
@@ -70,7 +70,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 7,
     name: 'Noor',
-    featured: false,
+    featured: true,
     src: 'assets/photos/gallery/gown-04.png',
     alt: {
       he: 'שמלת כלה מלכותית עם שובל ארוך ותחרה עשירה',
@@ -110,7 +110,7 @@ export const GALLERY: GownItem[] = [
   {
     id: 11,
     name: 'אדל',
-    featured: true,
+    featured: false,
     src: 'assets/photos/gallery/gown-08.png',
     alt: {
       he: 'שמלת נסיכה מרשימה עם חצאית רחבה ופרטי תפירה עדינים',
@@ -165,36 +165,6 @@ export const GALLERY: GownItem[] = [
     alt: {
       he: 'שמלת ערב חגיגית עם פרטי תחרה עדינים וגזרה זורמת',
       en: 'Festive evening gown with delicate lace detailing and a flowing cut',
-    },
-  },
-  {
-    id: 17,
-    name: 'Studio - Mirror Room',
-    featured: false,
-    src: 'assets/photos/gallery/studio-01.jpg',
-    alt: {
-      he: 'חדר המראה בסטודיו מור חזות עם שטיח ממותג ושמלות כלה ברקע',
-      en: 'The mirror room at Mor Hazut studio, with a branded rug and bridal gowns in the background',
-    },
-  },
-  {
-    id: 18,
-    name: 'Studio - Mirror Detail',
-    featured: false,
-    src: 'assets/photos/gallery/studio-02.jpg',
-    alt: {
-      he: 'תקריב על מראת הסטודיו ושטיח מור חזות הממותג',
-      en: "Close-up of the studio's mirror and the branded Mor Hazut rug",
-    },
-  },
-  {
-    id: 19,
-    name: 'Studio - Gown Wall',
-    featured: false,
-    src: 'assets/photos/gallery/studio-03.jpg',
-    alt: {
-      he: 'קיר שמלות הכלה בסטודיו לצד פינת ישיבה נעימה',
-      en: "The studio's wall of bridal gowns beside a cozy seating area",
     },
   },
   {
@@ -257,6 +227,117 @@ export const GALLERY: GownItem[] = [
       en: 'Bride against a stone wall, wearing a lace gown with a defined waist',
     },
   },
+  {
+    id: 26,
+    name: 'Noelle',
+    featured: false,
+    src: 'assets/photos/gallery/gown-21.jpeg',
+    alt: {
+      he: 'כלה בשמלת תחרה צמודה עם שרוולים ארוכים וצווארון מרובע, לצד מזנון עתיק',
+      en: 'Bride in a fitted lace gown with long sleeves and a square neckline, beside an antique dresser',
+    },
+  },
+  {
+    id: 27,
+    name: 'Genevieve',
+    featured: false,
+    src: 'assets/photos/gallery/gown-22.jpeg',
+    alt: {
+      he: 'כלה בשמלת תחרה עם הינומה קתדרלית, לצד מזנון עתיק',
+      en: 'Bride in a lace gown with a cathedral-length veil, beside an antique dresser',
+    },
+  },
+  {
+    id: 28,
+    name: 'Seraphine',
+    featured: false,
+    src: 'assets/photos/gallery/gown-23.jpeg',
+    alt: {
+      he: 'כלה בשמלה נוצצת עם כתפיים בולטות וחריץ בחצאית, לצד מראה מוזהבת',
+      en: 'Bride in a sequined gown with statement shoulders and a leg slit, beside a gilded mirror',
+    },
+  },
+  {
+    id: 29,
+    name: 'Wren',
+    featured: false,
+    src: 'assets/photos/gallery/gown-24.jpeg',
+    alt: {
+      he: 'כלה בשמלת רשת פנינים צמודה עם צווארון גבוה, על רקע וילונות',
+      en: 'Bride in a fitted pearl-mesh gown with a high neckline, against a curtained backdrop',
+    },
+  },
+  {
+    id: 30,
+    name: 'Briar',
+    featured: false,
+    src: 'assets/photos/gallery/gown-25.jpeg',
+    alt: {
+      he: 'כלה בשמלת רשת פנינים צמודה עם צווארון גבוה, בפתח קמור',
+      en: 'Bride in a fitted pearl-mesh gown with a high neckline, standing at an archway',
+    },
+  },
+  {
+    id: 31,
+    name: 'Corinne',
+    featured: false,
+    src: 'assets/photos/gallery/gown-26.jpeg',
+    alt: {
+      he: 'כלה בפרופיל צד לובשת שמלת סאטן עם מותן מקופל ושיער פזור',
+      en: 'Bride in profile wearing a satin gown with a folded peplum waist and loose hair',
+    },
+  },
+  {
+    id: 32,
+    name: 'Vesper',
+    featured: false,
+    src: 'assets/photos/gallery/gown-27.jpeg',
+    alt: {
+      he: 'כלה בשמלה מובנית עם כתפיים מודגשות ומותן פפלום',
+      en: 'Bride in a structured gown with statement shoulders and a peplum waist',
+    },
+  },
+  {
+    id: 33,
+    name: 'Marguerite',
+    featured: false,
+    src: 'assets/photos/gallery/gown-28.jpeg',
+    alt: {
+      he: 'כלה בשמלת תחרה פרחונית בגזרת A, בחדר מחופה פאנלים',
+      en: 'Bride in a floral lace A-line gown, in a wood-paneled room',
+    },
+  },
+  {
+    id: 34,
+    name: 'Solene',
+    featured: false,
+    src: 'assets/photos/gallery/gown-29.jpeg',
+    alt: {
+      he: 'כלה בשמלת תחרה פרחונית לצד מזנון עתיק ווילון מואר',
+      en: 'Bride in a floral lace gown beside an antique dresser and a sunlit curtain',
+    },
+  },
+  {
+    id: 35,
+    name: 'Imogen',
+    featured: false,
+    src: 'assets/photos/gallery/gown-30.jpeg',
+    alt: {
+      he: 'כלה בשמלת כדור עם גוף תחרה וצווארון גבוה',
+      en: 'Bride in a ball gown with a lace bodice and a high neckline',
+    },
+  },
+  {
+    id: 36,
+    name: 'Rosalind',
+    featured: false,
+    src: 'assets/photos/gallery/gown-31.jpeg',
+    alt: {
+      he: 'כלה בשמלת תחרה עם צווארון סאטן גבוה וחצאית קפלים, לצד כורסה מפוארת',
+      en: 'Bride in a lace gown with a high satin collar and a pleated skirt, beside an ornate armchair',
+    },
+  },
 ];
 
-export const FEATURED_GOWNS = GALLERY.filter((g) => g.featured);
+const FEATURED_ORDER = ['Maeve', 'Celine', 'Noor'];
+export const FEATURED_GOWNS = FEATURED_ORDER.map((name) => GALLERY.find((g) => g.name === name)!);

@@ -11,8 +11,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     icon: 'calendar',
     title: { he: 'ייעוץ ומדידה ראשונה', en: 'Consultation & Styling' },
     body: {
-      he: 'נדבר על החזון שלך, נתאים דוגמאות ונשרטט יחד את השמלה המושלמת בשבילך.',
-      en: 'We discuss your vision, try on samples, and sketch or find your perfect dress together.',
+      he: 'נכיר אותך, את הסגנון והחזון שלך, נמדוד דגמים ונמצא יחד את השמלה והגזרה המדוייקת עבורך.',
+      en: "We'll get to know you, your style and vision, measure sample styles, and find the exact dress and cut for you together.",
     },
   },
   {

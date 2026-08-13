@@ -15,7 +15,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
       skipToContent: 'דלגי לתוכן הראשי',
     },
     hero: {
-      tagline: 'עיצוב שמלות כלה',
+      tagline: 'עיצוב שמלות כלה צנועות',
       cta: 'קביעת פגישה',
     },
     home: {
@@ -92,7 +92,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     testimonials: {
       eyebrow: 'סיפורי כלות',
-      title: 'סיפורי אהבה',
+      title: 'הכלות של מור מספרות',
       subtitle: 'כמה מילים מהכלות שליוויתי בדרך אל היום הגדול שלהן.',
       pressEyebrow: 'הוזכרנו ב',
       pressTitle: 'ככה מדברים עלינו',
@@ -112,7 +112,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
       a11yLink: 'הצהרת נגישות',
       connectTitle: 'בואי נתחבר',
       contactTitle: 'פרטי קשר',
-      addressLine: 'רחוב הארזים 37ב, בית שמש',
+      addressLine: 'רחוב הארזים, בית שמש',
       phoneLabel: 'טלפון',
       emailLabel: 'אימייל',
       hoursLabel: 'שעות פעילות',
@@ -141,7 +141,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
       skipToContent: 'Skip to main content',
     },
     hero: {
-      tagline: 'Bridal Gown Design',
+      tagline: 'Modest Bridal Gown Design',
       cta: 'Book a Fitting',
     },
     home: {
@@ -220,7 +220,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     testimonials: {
       eyebrow: 'Testimonials',
-      title: 'Love Stories',
+      title: "Mor's Brides Tell Their Story",
       subtitle: 'A few words from the brides I had the honour of dressing.',
       pressEyebrow: 'As Featured In',
       pressTitle: 'What People Are Saying',

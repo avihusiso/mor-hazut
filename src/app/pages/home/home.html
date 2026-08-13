@@ -8,10 +8,13 @@
   <div class="absolute inset-0 bg-ivory/40 backdrop-blur-[0.4px]" aria-hidden="true"></div>
 
   <div class="animate-fade-up relative z-10 flex flex-col items-center px-6 text-center">
-    <h1 dir="ltr" class="font-brand text-6xl leading-none font-normal tracking-tight text-charcoal md:text-8xl">
-      Mor Hazut
+    <h1 class="flex items-center justify-center">
+      <img
+        src="assets/photos/logo-removebg.png"
+        alt="Mor Hazut"
+        class="h-56 w-auto md:h-80 !w-[432px]"
+      />
     </h1>
-    <div class="mt-2 h-px w-56 bg-gold-deep" aria-hidden="true"></div>
     <h2 class="mt-4 text-sm font-semibold tracking-[0.3em] text-charcoal uppercase md:text-base">
       {{ i18n.t('hero.tagline') }}
     </h2>
@@ -94,13 +97,34 @@
 
 <section appFadeIn class="bg-charcoal px-6 py-20 text-ivory md:px-10 md:py-28 lg:px-20">
   <div class="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-    <div class="aspect-4/5 overflow-hidden rounded-lg border border-ivory/15">
-      <img
-        src="assets/photos/gallery/studio-01.jpg"
-        [alt]="i18n.pick({ he: 'חדר המראה בסטודיו מור חזות', en: 'The mirror room at Mor Hazut studio' })"
-        loading="lazy"
-        class="h-full w-full object-cover"
-      />
+    <div class="relative aspect-4/5 overflow-hidden rounded-lg border border-ivory/15">
+      @for (photo of studioPhotos; track photo.src; let i = $index) {
+        <img
+          [src]="photo.src"
+          [alt]="i18n.pick(photo.alt)"
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out"
+          [class.opacity-100]="i === studioIndex()"
+          [class.opacity-0]="i !== studioIndex()"
+        />
+      }
+
+      <button
+        type="button"
+        (click)="prevStudioPhoto()"
+        [attr.aria-label]="i18n.pick({ he: 'התמונה הקודמת', en: 'Previous photo' })"
+        class="absolute start-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-ivory/85 text-charcoal shadow-md transition-colors hover:bg-ivory"
+      >
+        <app-icon name="arrow" class="h-4 w-4 rotate-180 rtl:rotate-0" />
+      </button>
+      <button
+        type="button"
+        (click)="nextStudioPhoto()"
+        [attr.aria-label]="i18n.pick({ he: 'התמונה הבאה', en: 'Next photo' })"
+        class="absolute end-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-ivory/85 text-charcoal shadow-md transition-colors hover:bg-ivory"
+      >
+        <app-icon name="arrow" class="h-4 w-4 rtl:rotate-180" />
+      </button>
     </div>
 
     <div>
