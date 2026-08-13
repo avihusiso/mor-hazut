@@ -1,0 +1,98 @@
+<header class="fixed inset-x-0 top-0 z-40 border-b border-beige-dark/40 bg-ivory-deep/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-4 py-2.5 md:px-10 md:py-3">
+    <a
+      routerLink="/"
+      (click)="closeMobile()"
+      class="flex items-center gap-2 rounded-sm focus-visible:outline-offset-4"
+      [attr.aria-label]="i18n.pick({ he: 'מור חזות, מעבר לדף הבית', en: 'Mor Hazut, go to homepage' })"
+    >
+      <img
+        src="assets/photos/logo-mark.png"
+        alt=""
+        class="h-11 w-11 object-cover md:h-12 md:w-12"
+        width="48"
+        height="48"
+      />
+    </a>
+
+    <nav
+      class="hidden items-center gap-8 md:flex"
+      [attr.aria-label]="i18n.pick({ he: 'ניווט ראשי', en: 'Main navigation' })"
+    >
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="text-gold-deep border-gold-deep"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="border-b border-transparent pb-1 text-xs font-semibold tracking-[0.2em] text-charcoal-soft uppercase transition-colors duration-300 hover:text-gold-deep"
+        >
+          {{ i18n.t(link.labelKey) }}
+        </a>
+      }
+    </nav>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <button
+        type="button"
+        (click)="i18n.toggle()"
+        class="rounded-full cursor-pointer border border-charcoal/25 px-3 py-1.5 text-xs font-semibold tracking-wide text-charcoal-soft transition-colors duration-300 hover:border-gold-deep hover:text-gold-deep"
+        [attr.aria-label]="i18n.pick({ he: 'החלפת שפה לאנגלית', en: 'Switch language to Hebrew' })"
+      >
+        {{ i18n.t('nav.langToggle') }}
+      </button>
+      <a routerLink="/" fragment="contact" class="btn-outline !px-6 !py-3 text-xs">
+        {{ i18n.t('nav.bookFitting') }}
+      </a>
+    </div>
+
+    <button
+      #mobileToggle
+      type="button"
+      class="flex h-10 w-10 items-center justify-center text-charcoal md:hidden"
+      (click)="toggleMobile()"
+      [attr.aria-expanded]="mobileOpen()"
+      aria-controls="mobile-menu"
+      [attr.aria-label]="i18n.t(mobileOpen() ? 'nav.closeMenu' : 'nav.menu')"
+    >
+      <app-icon [name]="mobileOpen() ? 'close' : 'menu'" class="block h-6 w-6" />
+    </button>
+  </div>
+
+  @if (mobileOpen()) {
+    <nav
+      id="mobile-menu"
+      class="flex flex-col gap-1 border-t border-beige-dark/40 bg-ivory px-6 py-6 md:hidden"
+      [attr.aria-label]="i18n.pick({ he: 'ניווט ראשי', en: 'Main navigation' })"
+    >
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="text-gold-deep"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          (click)="closeMobile()"
+          class="border-b border-beige-dark/30 py-3.5 text-sm font-semibold tracking-[0.1em] text-charcoal uppercase"
+        >
+          {{ i18n.t(link.labelKey) }}
+        </a>
+      }
+      <div class="mt-4 flex items-center gap-3">
+        <button
+          type="button"
+          (click)="i18n.toggle()"
+          class="rounded-full border border-charcoal/25 px-4 py-2 text-xs font-semibold tracking-wide text-charcoal-soft"
+          [attr.aria-label]="i18n.pick({ he: 'החלפת שפה לאנגלית', en: 'Switch language to Hebrew' })"
+        >
+          {{ i18n.t('nav.langToggle') }}
+        </button>
+      </div>
+      <a
+        routerLink="/"
+        fragment="contact"
+        (click)="closeMobile()"
+        class="btn-solid mt-4 w-full text-xs"
+      >
+        {{ i18n.t('nav.bookFitting') }}
+      </a>
+    </nav>
+  }
+</header>

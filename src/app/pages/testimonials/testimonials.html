@@ -1,0 +1,32 @@
+<section class="mx-auto max-w-[1440px] px-6 pt-32 pb-20 md:px-10 md:pt-40 md:pb-28 lg:px-20">
+  <app-section-heading
+    [eyebrow]="i18n.t('testimonials.eyebrow')"
+    [title]="i18n.t('testimonials.title')"
+    [subtitle]="i18n.t('testimonials.subtitle')"
+  />
+
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+    @for (item of testimonials; track item.id; let i = $index) {
+      <figure appFadeIn [appFadeInDelay]="(i % 2) * 100" class="flex flex-col gap-5 bg-surface p-8">
+        <div class="flex gap-1 text-gold" [attr.aria-label]="'5 / 5'">
+          @for (s of stars; track s) {
+            <app-icon name="star" class="h-4 w-4" />
+          }
+        </div>
+        <app-icon name="quote" class="h-6 w-6 text-gold-deep/50" />
+        <blockquote class="text-lg leading-relaxed whitespace-pre-line text-charcoal italic">
+          {{ i18n.pick(item.quote) }}
+        </blockquote>
+      </figure>
+    }
+  </div>
+
+  <div appFadeIn class="mt-24 text-center">
+    <p class="eyebrow mb-8">{{ i18n.t('testimonials.pressEyebrow') }}</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
+      @for (mention of press; track mention.id) {
+        <span class="text-xl font-semibold tracking-[0.05em] text-charcoal">{{ mention.label }}</span>
+      }
+    </div>
+  </div>
+</section>

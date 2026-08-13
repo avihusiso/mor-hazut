@@ -1,0 +1,239 @@
+<!-- Hero -->
+<section class="relative flex h-[88vh] min-h-[560px] w-full items-center justify-center overflow-hidden">
+  <img
+    src="assets/photos/gallery/Hero.jpg"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover object-[73%_20%] md:object-[50%_20%]"
+  />
+  <div class="absolute inset-0 bg-ivory/40 backdrop-blur-[0.4px]" aria-hidden="true"></div>
+
+  <div class="animate-fade-up relative z-10 flex flex-col items-center px-6 text-center">
+    <h1 dir="ltr" class="font-brand text-6xl leading-none font-normal tracking-tight text-charcoal md:text-8xl">
+      Mor Hazut
+    </h1>
+    <div class="mt-2 h-px w-56 bg-gold-deep" aria-hidden="true"></div>
+    <h2 class="mt-4 text-sm font-semibold tracking-[0.3em] text-charcoal uppercase md:text-base">
+      {{ i18n.t('hero.tagline') }}
+    </h2>
+    <a
+      routerLink="/"
+      fragment="contact"
+      class="mt-6 inline-flex items-center justify-center border border-charcoal px-10 py-4 text-xs font-semibold tracking-[0.15em] text-charcoal uppercase transition-colors duration-300 hover:bg-charcoal hover:text-ivory"
+    >
+      {{ i18n.t('hero.cta') }}
+    </a>
+  </div>
+</section>
+
+<!-- Featured Gowns -->
+<section appFadeIn class="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28 lg:px-20">
+  <app-section-heading [eyebrow]="i18n.t('home.featured.eyebrow')" [title]="i18n.t('home.featured.title')" />
+
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    @for (gown of featuredGowns; track gown.id; let i = $index) {
+      <a
+        routerLink="/collection"
+        class="group block"
+        [class]="i === 1 ? 'md:-mt-8' : i === 2 ? 'md:mt-8' : ''"
+      >
+        <div class="relative mb-6 aspect-3/4 overflow-hidden rounded-lg bg-surface shadow-md transition-shadow duration-300 group-hover:shadow-xl">
+          <img
+            [src]="gown.src"
+            [alt]="i18n.pick(gown.alt)"
+            loading="lazy"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-charcoal/0 opacity-0 transition-opacity duration-500 group-hover:bg-charcoal/5 group-hover:opacity-100"></div>
+        </div>
+      </a>
+    }
+  </div>
+
+  <div class="mt-12 text-center">
+    <a
+      routerLink="/collection"
+      class="group inline-flex items-center gap-2 border-b border-gold-deep/50 pb-1 text-xs font-semibold tracking-[0.2em] text-gold-deep uppercase transition-colors hover:border-charcoal hover:text-charcoal"
+    >
+      {{ i18n.t('home.featured.viewAll') }}
+      <app-icon name="arrow" class="h-4 w-4 rtl:-scale-x-100" />
+    </a>
+  </div>
+</section>
+
+<!-- Villa Juliet teaser -->
+<section appFadeIn class="bg-ivory-deep px-6 py-20 text-center md:px-10 md:py-24">
+  <p class="eyebrow mb-2">{{ i18n.t('home.villaTeaser.eyebrow') }}</p>
+  <p dir="ltr" class="font-script text-4xl text-gold-deep md:text-5xl">Juliet</p>
+  <h2 class="mx-auto mt-2 max-w-xl text-3xl font-semibold text-charcoal md:text-4xl">
+    {{ i18n.t('home.villaTeaser.title') }}
+  </h2>
+  <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-charcoal-soft">
+    {{ i18n.t('home.villaTeaser.body') }}
+  </p>
+  <a routerLink="/villa" class="btn-outline mt-9">
+    {{ i18n.t('home.villaTeaser.cta') }}
+  </a>
+</section>
+
+<!-- Process -->
+<section appFadeIn class="bg-surface px-6 py-20 md:px-10 md:py-28 lg:px-20">
+  <div class="mx-auto max-w-[1440px]">
+    <app-section-heading [eyebrow]="i18n.t('home.process.eyebrow')" [title]="i18n.t('home.process.title')" />
+
+    <div class="grid grid-cols-1 gap-12 text-center md:grid-cols-3">
+      @for (step of processSteps; track step.icon) {
+        <div class="flex flex-col items-center">
+          <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-ivory text-gold-deep">
+            <app-icon [name]="step.icon" class="h-7 w-7" />
+          </div>
+          <h3 class="mb-2 text-lg font-medium text-charcoal">{{ i18n.pick(step.title) }}</h3>
+          <p class="max-w-xs text-sm leading-relaxed text-charcoal-soft">{{ i18n.pick(step.body) }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section appFadeIn class="bg-charcoal px-6 py-20 text-ivory md:px-10 md:py-28 lg:px-20">
+  <div class="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+    <div class="aspect-4/5 overflow-hidden rounded-lg border border-ivory/15">
+      <img
+        src="assets/photos/gallery/studio-01.jpg"
+        [alt]="i18n.pick({ he: 'חדר המראה בסטודיו מור חזות', en: 'The mirror room at Mor Hazut studio' })"
+        loading="lazy"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+    <div>
+      <p class="eyebrow mb-3 !text-gold">{{ i18n.t('home.about.eyebrow') }}</p>
+      <h2 class="mb-6 text-3xl font-semibold md:text-4xl">{{ i18n.t('home.about.title') }}</h2>
+      <p class="mb-6 text-lg leading-relaxed text-ivory/90 italic">{{ i18n.t('home.about.quote') }}</p>
+      <p class="mb-4 leading-relaxed text-ivory/80">{{ i18n.t('home.about.p1') }}</p>
+      <p class="mb-8 leading-relaxed text-ivory/80">{{ i18n.t('home.about.p2') }}</p>
+
+      <div class="border border-ivory/20 bg-ivory/5 p-7">
+        <h3 class="mb-2 text-lg font-medium">{{ i18n.t('home.about.ctaTitle') }}</h3>
+        <p class="mb-5 text-sm text-ivory/70">{{ i18n.t('home.about.ctaBody') }}</p>
+        <a
+          routerLink="/"
+          fragment="contact"
+          class="btn-outline w-full border-ivory/60 !py-3 text-xs text-ivory hover:bg-ivory hover:text-charcoal"
+        >
+          {{ i18n.t('home.about.ctaButton') }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" appFadeIn class="bg-ivory-deep px-6 py-20 md:px-10 md:py-28 lg:px-20">
+  <div class="mx-auto max-w-3xl">
+    <app-section-heading
+      [eyebrow]="i18n.t('home.contact.eyebrow')"
+      [title]="i18n.t('home.contact.title')"
+      [subtitle]="i18n.t('home.contact.subtitle')"
+    />
+
+    <div aria-live="polite">
+      @if (submitted()) {
+        <div class="flex flex-col items-center gap-4 border border-gold/40 bg-ivory px-8 py-14 text-center">
+          <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gold-pale text-gold-deep">
+            <app-icon name="check" class="h-7 w-7" />
+          </div>
+          <h3 class="text-xl font-medium text-charcoal">{{ i18n.t('home.contact.successTitle') }}</h3>
+          <p class="max-w-sm text-sm text-charcoal-soft">{{ i18n.t('home.contact.successBody') }}</p>
+          <button type="button" (click)="sendAnother()" class="btn-outline mt-3 !px-6 !py-3 text-xs">
+            {{ i18n.t('home.contact.sendAnother') }}
+          </button>
+        </div>
+      } @else {
+        <form
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          novalidate
+          class="rounded-lg border border-beige-dark/40 bg-ivory p-6 shadow-lg md:p-10"
+        >
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label for="fullName" class="mb-2 block text-xs font-semibold tracking-[0.1em] text-charcoal uppercase">
+                {{ i18n.t('home.contact.fullNameLabel') }}
+              </label>
+              <input
+                id="fullName"
+                type="text"
+                formControlName="fullName"
+                [placeholder]="i18n.t('home.contact.fullNamePlaceholder')"
+                class="w-full border border-beige-dark/50 bg-ivory px-4 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/50 focus:border-gold-deep focus:ring-1 focus:ring-gold-deep focus:outline-none"
+                [attr.aria-invalid]="fullName.invalid && fullName.touched"
+                [attr.aria-describedby]="fullName.invalid && fullName.touched ? 'fullName-error' : null"
+              />
+              @if (fullName.invalid && fullName.touched) {
+                <p id="fullName-error" role="alert" class="mt-1.5 text-xs text-error">
+                  {{ i18n.t('home.contact.fullNameError') }}
+                </p>
+              }
+            </div>
+
+            <div>
+              <label for="phone" class="mb-2 block text-xs font-semibold tracking-[0.1em] text-charcoal uppercase">
+                {{ i18n.t('home.contact.phoneLabel') }}
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                formControlName="phone"
+                [placeholder]="i18n.t('home.contact.phonePlaceholder')"
+                class="w-full border border-beige-dark/50 bg-ivory px-4 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/50 focus:border-gold-deep focus:ring-1 focus:ring-gold-deep focus:outline-none"
+                [attr.aria-invalid]="phone.invalid && phone.touched"
+                [attr.aria-describedby]="phone.invalid && phone.touched ? 'phone-error' : null"
+              />
+              @if (phone.invalid && phone.touched) {
+                <p id="phone-error" role="alert" class="mt-1.5 text-xs text-error">
+                  {{ i18n.t('home.contact.phoneError') }}
+                </p>
+              }
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="email" class="mb-2 block text-xs font-semibold tracking-[0.1em] text-charcoal uppercase">
+                {{ i18n.t('home.contact.emailLabel') }}
+              </label>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                [placeholder]="i18n.t('home.contact.emailPlaceholder')"
+                class="w-full border border-beige-dark/50 bg-ivory px-4 py-3 text-sm text-charcoal placeholder:text-charcoal-soft/50 focus:border-gold-deep focus:ring-1 focus:ring-gold-deep focus:outline-none"
+                [attr.aria-invalid]="email.invalid && email.touched"
+                [attr.aria-describedby]="email.invalid && email.touched ? 'email-error' : null"
+              />
+              @if (email.invalid && email.touched) {
+                <p id="email-error" role="alert" class="mt-1.5 text-xs text-error">
+                  {{ i18n.t('home.contact.emailError') }}
+                </p>
+              }
+            </div>
+          </div>
+
+          <div class="mt-8 text-center">
+            <button type="submit" class="btn-solid cursor-pointer">
+              {{ i18n.t('home.contact.submit') }}
+            </button>
+          </div>
+
+          <p class="mt-5 text-xs leading-relaxed text-charcoal-soft">
+            {{ i18n.t('home.contact.legalPrefix') }}
+            <a routerLink="/privacy-policy" class="underline hover:text-gold-deep">{{ i18n.t('home.contact.legalPrivacy') }}</a>
+            {{ i18n.t('home.contact.legalAnd') }}
+            <a routerLink="/terms" class="underline hover:text-gold-deep">{{ i18n.t('home.contact.legalTerms') }}</a>
+            {{ i18n.t('home.contact.legalSuffix') }}
+          </p>
+        </form>
+      }
+    </div>
+  </div>
+</section>

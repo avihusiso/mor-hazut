@@ -1,0 +1,97 @@
+<section class="mx-auto max-w-[1440px] px-6 pt-32 pb-20 md:px-10 md:pt-40 md:pb-28 lg:px-20">
+  <app-section-heading
+    [eyebrow]="i18n.t('collection.eyebrow')"
+    [title]="i18n.t('collection.title')"
+    [subtitle]="i18n.t('collection.subtitle')"
+  />
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-4 lg:auto-rows-[14rem] lg:gap-5">
+    @for (gown of gowns; track gown.id; let i = $index) {
+      <button
+        type="button"
+        appFadeIn
+        [appFadeInDelay]="(i % 6) * 80"
+        (click)="openLightbox(i, $event)"
+        class="group block cursor-pointer"
+        [class]="gridSpanClass(i)"
+      >
+        <div class="relative aspect-3/4 overflow-hidden rounded-lg bg-surface shadow-md transition-shadow duration-300 group-hover:shadow-xl lg:aspect-auto lg:h-full">
+          <img
+            [src]="gown.src"
+            [alt]="i18n.pick(gown.alt)"
+            loading="lazy"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-charcoal/70 to-transparent px-4 pt-12 pb-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            <span class="border border-ivory px-4 py-2 text-xs font-semibold tracking-[0.15em] text-ivory uppercase">
+              {{ i18n.t('collection.viewDetails') }}
+            </span>
+          </div>
+        </div>
+      </button>
+    }
+  </div>
+</section>
+
+@if (currentGown(); as gown) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <button
+      type="button"
+      class="absolute inset-0 bg-charcoal/85"
+      [attr.aria-label]="i18n.t('collection.close')"
+      (click)="closeLightbox()"
+    ></button>
+
+    <div
+      #dialog
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="i18n.pick(gown.alt)"
+      tabindex="-1"
+      (keydown)="onDialogKeydown($event)"
+      class="relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl outline-none"
+    >
+      <button
+        type="button"
+        (click)="closeLightbox()"
+        class="absolute top-3 end-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white/80 text-charcoal-soft backdrop-blur-sm transition-colors hover:text-gold-deep"
+        [attr.aria-label]="i18n.t('collection.close')"
+      >
+        <app-icon name="close" class="h-5 w-5" />
+      </button>
+
+      <div class="relative flex flex-1 items-center justify-center bg-white p-6 sm:p-10">
+        @for (idx of [lightboxIndex()]; track idx) {
+          <img [src]="gown.src" [alt]="i18n.pick(gown.alt)" class="max-h-[70vh] w-full animate-fade-in object-contain" />
+        }
+
+        <button
+          type="button"
+          (click)="prev()"
+          class="absolute inset-y-0 start-0 flex w-14 cursor-pointer items-center justify-center text-charcoal-soft transition-colors hover:text-gold-deep"
+          [attr.aria-label]="i18n.t('collection.lightboxPrev')"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-beige-dark/50 bg-white shadow-md md:h-auto md:w-auto md:rounded-none md:border-0 md:bg-transparent md:shadow-none"
+          >
+            <app-icon name="arrow" class="h-6 w-6 rotate-180 rtl:rotate-0" />
+          </span>
+        </button>
+        <button
+          type="button"
+          (click)="next()"
+          class="absolute inset-y-0 end-0 flex w-14 cursor-pointer items-center justify-center text-charcoal-soft transition-colors hover:text-gold-deep"
+          [attr.aria-label]="i18n.t('collection.lightboxNext')"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-beige-dark/50 bg-white shadow-md md:h-auto md:w-auto md:rounded-none md:border-0 md:bg-transparent md:shadow-none"
+          >
+            <app-icon name="arrow" class="h-6 w-6 rtl:rotate-180" />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+}

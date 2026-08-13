@@ -1,0 +1,73 @@
+<footer class="border-t border-beige-dark/40 bg-white text-charcoal">
+  <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-16 md:grid-cols-4 md:px-10 md:py-20 lg:px-20">
+    <div class="flex flex-col gap-4 md:col-span-1">
+      <img
+        src="assets/photos/logo-removebg.png"
+        [alt]="i18n.pick({ he: 'מור חזות', en: 'Mor Hazut' })"
+        class="h-64 w-auto -ms-3 object-contain md:h-72"
+      />
+    </div>
+
+    <nav class="flex flex-col gap-3" [attr.aria-label]="i18n.t('footer.navTitle')">
+      <h2 class="eyebrow mb-1">{{ i18n.t('footer.navTitle') }}</h2>
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" class="w-fit text-sm text-charcoal-soft transition-colors hover:text-gold-deep hover:underline">
+          {{ i18n.t(link.labelKey) }}
+        </a>
+      }
+    </nav>
+
+    <div class="flex flex-col gap-3">
+      <h2 class="eyebrow mb-1">{{ i18n.t('footer.contactTitle') }}</h2>
+      <a href="tel:+972526526616" class="flex items-center gap-2 text-sm text-charcoal-soft transition-colors hover:text-gold-deep">
+        <app-icon name="phone" class="h-4 w-4 shrink-0" />
+        <span>052-652-6616</span>
+      </a>
+      <a href="mailto:mor.biton7@gmail.com" class="flex items-center gap-2 text-sm text-charcoal-soft transition-colors hover:text-gold-deep">
+        <app-icon name="mail" class="h-4 w-4 shrink-0" />
+        <span>mor.biton7&#64;gmail.com</span>
+      </a>
+      <p class="flex items-start gap-2 text-sm text-charcoal-soft">
+        <app-icon name="pin" class="h-4 w-4 shrink-0 translate-y-0.5" />
+        <span>{{ i18n.t('footer.addressLine') }}</span>
+      </p>
+      <p class="flex items-start gap-2 text-sm text-charcoal-soft">
+        <app-icon name="clock" class="h-4 w-4 shrink-0 translate-y-0.5" />
+        <span>{{ i18n.t('footer.hoursValue') }}</span>
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <h2 class="eyebrow mb-1">{{ i18n.t('footer.legalTitle') }}</h2>
+      <a routerLink="/privacy-policy" class="w-fit text-sm text-charcoal-soft transition-colors hover:text-gold-deep hover:underline">
+        {{ i18n.t('footer.privacyLink') }}
+      </a>
+      <a routerLink="/terms" class="w-fit text-sm text-charcoal-soft transition-colors hover:text-gold-deep hover:underline">
+        {{ i18n.t('footer.termsLink') }}
+      </a>
+      <a routerLink="/accessibility" class="w-fit text-sm text-charcoal-soft transition-colors hover:text-gold-deep hover:underline">
+        {{ i18n.t('footer.a11yLink') }}
+      </a>
+
+      <h2 class="eyebrow mt-4 mb-1">{{ i18n.t('footer.connectTitle') }}</h2>
+      <div class="flex items-center gap-3">
+        @for (social of socialLinks; track social.name) {
+          <a
+            [href]="social.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-charcoal/20 text-charcoal transition-colors duration-300 hover:border-gold-deep hover:text-gold-deep"
+            [attr.aria-label]="social.name"
+          >
+            <app-icon [name]="social.icon" class="h-4.5 w-4.5" />
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-beige-dark/40 px-6 py-6 text-center text-xs text-charcoal-soft md:px-10 lg:px-20">
+    &copy;  {{ i18n.pick({ he: 'מור חזות סטודיו שמלות כלה.', en: 'Mor Hazut Bridal Atelier.' }) }}
+    {{ i18n.t('footer.rights') }} {{ year }}.
+  </div>
+</footer>

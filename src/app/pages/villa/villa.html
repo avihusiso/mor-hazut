@@ -1,0 +1,142 @@
+<!-- Hero -->
+<section class="relative px-6 pt-32 pb-20 text-center md:px-10 md:pt-40 md:pb-24">
+  <img
+    src="assets/photos/gallery/villa/villa-hero.jpg"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 bg-ivory/50 backdrop-blur-[1px]" aria-hidden="true"></div>
+
+  <div appFadeIn class="relative">
+    <p class="eyebrow mr-4 mb-3 md:mr-0">{{ i18n.t('villa.eyebrow') }}</p>
+    <h1 dir="ltr" class="font-script text-7xl leading-none text-charcoal md:text-9xl">Juliet</h1>
+    <div class="mx-auto mt-4 h-px w-16 bg-gold-deep" aria-hidden="true"></div>
+    <h2 class="mt-4 text-sm font-semibold tracking-[0.3em] text-charcoal uppercase md:text-base">
+      {{ i18n.t('villa.tagline') }}
+    </h2>
+    <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-charcoal-soft md:text-lg">
+      {{ i18n.t('villa.intro') }}
+    </p>
+  </div>
+</section>
+
+<!-- Amenities -->
+<section appFadeIn class="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28 lg:px-20">
+  <h2 class="mb-12 text-center text-3xl font-semibold text-charcoal md:mb-16 md:text-4xl">
+    {{ i18n.t('villa.amenitiesTitle') }}
+  </h2>
+
+  <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    @for (item of amenities; track item.title.en) {
+      <div class="flex flex-col items-center text-center">
+        <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-surface text-gold-deep">
+          <app-icon [name]="item.icon" class="h-7 w-7" />
+        </div>
+        <h3 class="mb-2 text-lg font-medium text-charcoal">{{ i18n.pick(item.title) }}</h3>
+        <p class="text-sm leading-relaxed text-charcoal-soft">{{ i18n.pick(item.body) }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Gallery -->
+<section appFadeIn class="bg-surface px-6 py-20 md:px-10 md:py-28 lg:px-20">
+  <div class="mx-auto max-w-[1440px]">
+    <h2 class="mb-12 text-center text-3xl font-semibold text-charcoal md:mb-16 md:text-4xl">
+      {{ i18n.t('villa.galleryTitle') }}
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+      @for (photo of gallery; track photo.id; let i = $index) {
+        <button
+          type="button"
+          (click)="openLightbox(i, $event)"
+          class="group aspect-3/4 cursor-pointer overflow-hidden rounded-lg bg-ivory shadow-md transition-shadow duration-300 hover:shadow-xl"
+        >
+          <img
+            [src]="photo.src"
+            [alt]="i18n.pick(photo.alt)"
+            loading="lazy"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+@if (currentPhoto(); as photo) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <button
+      type="button"
+      class="absolute inset-0 bg-charcoal/85"
+      [attr.aria-label]="i18n.t('collection.close')"
+      (click)="closeLightbox()"
+    ></button>
+
+    <div
+      #dialog
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="i18n.pick(photo.alt)"
+      tabindex="-1"
+      (keydown)="onDialogKeydown($event)"
+      class="relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl outline-none"
+    >
+      <button
+        type="button"
+        (click)="closeLightbox()"
+        class="absolute top-3 end-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white/80 text-charcoal-soft backdrop-blur-sm transition-colors hover:text-gold-deep"
+        [attr.aria-label]="i18n.t('collection.close')"
+      >
+        <app-icon name="close" class="h-5 w-5" />
+      </button>
+
+      <div class="relative flex flex-1 items-center justify-center bg-white p-6 sm:p-10">
+        @for (idx of [lightboxIndex()]; track idx) {
+          <img [src]="photo.src" [alt]="i18n.pick(photo.alt)" class="max-h-[70vh] w-full animate-fade-in object-contain" />
+        }
+
+        <button
+          type="button"
+          (click)="prev()"
+          class="absolute inset-y-0 start-0 flex w-14 cursor-pointer items-center justify-center text-charcoal-soft transition-colors hover:text-gold-deep"
+          [attr.aria-label]="i18n.t('collection.lightboxPrev')"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-beige-dark/50 bg-white shadow-md md:h-auto md:w-auto md:rounded-none md:border-0 md:bg-transparent md:shadow-none"
+          >
+            <app-icon name="arrow" class="h-6 w-6 rotate-180 rtl:rotate-0" />
+          </span>
+        </button>
+        <button
+          type="button"
+          (click)="next()"
+          class="absolute inset-y-0 end-0 flex w-14 cursor-pointer items-center justify-center text-charcoal-soft transition-colors hover:text-gold-deep"
+          [attr.aria-label]="i18n.t('collection.lightboxNext')"
+        >
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-beige-dark/50 bg-white shadow-md md:h-auto md:w-auto md:rounded-none md:border-0 md:bg-transparent md:shadow-none"
+          >
+            <app-icon name="arrow" class="h-6 w-6 rtl:rotate-180" />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Separate quote CTA -->
+<section appFadeIn class="bg-charcoal px-6 py-20 text-center text-ivory md:px-10 md:py-24">
+  <p class="eyebrow mb-3 !text-gold">{{ i18n.t('villa.quoteEyebrow') }}</p>
+  <h2 class="mx-auto max-w-xl text-3xl font-semibold md:text-4xl">{{ i18n.t('villa.quoteTitle') }}</h2>
+  <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ivory/80">{{ i18n.t('villa.quoteBody') }}</p>
+  <a
+    routerLink="/"
+    fragment="contact"
+    class="btn-outline mt-9 border-ivory/60 text-ivory hover:bg-ivory hover:text-charcoal"
+  >
+    {{ i18n.t('villa.quoteCta') }}
+  </a>
+</section>
