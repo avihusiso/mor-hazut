@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ImgSkeletonDirective } from '../../core/animations/img-skeleton.directive';
 import { I18nService } from '../../core/i18n/i18n.service';
 import { IconComponent } from '../icon/icon';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterLink, IconComponent],
+  imports: [RouterLink, IconComponent, ImgSkeletonDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './footer.html',
 })

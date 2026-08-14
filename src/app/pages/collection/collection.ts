@@ -10,6 +10,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { FadeInDirective } from '../../core/animations/fade-in.directive';
+import { ImgSkeletonDirective } from '../../core/animations/img-skeleton.directive';
 import { GALLERY } from '../../core/data/gallery.data';
 import { I18nService } from '../../core/i18n/i18n.service';
 import { IconComponent } from '../../shared/icon/icon';
@@ -20,7 +21,7 @@ const GRID_SPAN_PATTERN = ['lg:row-span-2', '', '', 'lg:row-span-2'];
 @Component({
   selector: 'app-collection',
   standalone: true,
-  imports: [FadeInDirective, IconComponent, SectionHeadingComponent],
+  imports: [FadeInDirective, ImgSkeletonDirective, IconComponent, SectionHeadingComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './collection.html',
 })

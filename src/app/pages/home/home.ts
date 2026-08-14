@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '
 import { FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { FadeInDirective } from '../../core/animations/fade-in.directive';
+import { ImgSkeletonDirective } from '../../core/animations/img-skeleton.directive';
 import { FEATURED_GOWNS } from '../../core/data/gallery.data';
 import { PROCESS_STEPS } from '../../core/data/process.data';
 import { STUDIO_PHOTOS } from '../../core/data/studio.data';
@@ -34,6 +35,7 @@ interface ContactForm {
     ReactiveFormsModule,
     RouterLink,
     FadeInDirective,
+    ImgSkeletonDirective,
     IconComponent,
     SectionHeadingComponent,
     ScrollToFragmentDirective,
