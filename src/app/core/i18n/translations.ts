@@ -121,7 +121,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     whatsapp: {
       label: 'שיחה בוואטסאפ',
-      message: 'היי מור, אשמח לשמוע פרטים על שמלות כלה בעיצוב אישי 💍',
+      message: 'היי מור, אשמח להתרשם משמלות הכלה שלך💍',
     },
     common: {
       close: 'סגירה',
@@ -249,7 +249,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     whatsapp: {
       label: 'Chat on WhatsApp',
-      message: "Hi Mor, I'd love to hear more about custom bridal gowns 💍",
+      message: "Hi Mor, I'd love to see your bridal gowns 💍",
     },
     common: {
       close: 'Close',
