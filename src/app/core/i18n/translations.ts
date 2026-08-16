@@ -83,7 +83,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     collection: {
       eyebrow: 'הקולקציה',
-      title: 'גלריית תמונות',
+      title: 'גלריית שמלות כלה',
       subtitle: 'טעימה קטנה מתוך עולם שלם של שמלות כלה עוצרות נשימה, שכולן נתפרות בהזמנה אישית עבורך.',
       viewDetails: 'לגודל מלא',
       close: 'סגירה',
@@ -211,7 +211,7 @@ export const TRANSLATIONS: Record<Lang, Record<string, any>> = {
     },
     collection: {
       eyebrow: 'The Collection',
-      title: 'Photo Gallery',
+      title: 'Bridal Gown Gallery',
       subtitle: 'A small taste of a whole world of breathtaking bridal gowns, each one custom-made just for you.',
       viewDetails: 'Full Size',
       close: 'Close',
