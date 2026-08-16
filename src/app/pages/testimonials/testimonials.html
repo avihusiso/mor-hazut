@@ -9,7 +9,10 @@
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     @for (item of testimonials; track item.id; let i = $index) {
       <figure appFadeIn [appFadeInDelay]="(i % 2) * 100" class="flex flex-col gap-5 bg-surface p-8">
-        <div class="flex gap-1 text-gold" [attr.aria-label]="'5 / 5'">
+        <div
+          class="flex gap-1 text-gold"
+          [attr.aria-label]="i18n.pick({ he: 'דירוג: 5 מתוך 5 כוכבים', en: 'Rating: 5 out of 5 stars' })"
+        >
           @for (s of stars; track s) {
             <app-icon name="star" class="h-4 w-4" />
           }
