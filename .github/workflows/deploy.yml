@@ -27,7 +27,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx ng build --configuration production --base-href /mor-hazut/
+      - run: npx ng build --configuration production --base-href /
 
       - run: touch dist/mor-hazut/browser/.nojekyll
 
